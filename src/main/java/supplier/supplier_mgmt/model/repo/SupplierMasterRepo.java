@@ -5,7 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import supplier_mgmt.model.master.SupplierMaster;
+
+import supplier.supplier_mgmt.model.master.SupplierMaster;
 
 @Repository("supplierMasterRepo")
 public interface SupplierMasterRepo extends JpaRepository<SupplierMaster, Long> 
