@@ -1,18 +1,18 @@
-package supplier.supplier_mgmt.model.master;
+package customer.customer_mgmt.model.master;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "SUPPLIER_MASTER")
-public class SupplierMaster implements Serializable {
+@Table(name = "CUSTOMER_MASTER")
+public class CustomerMaster implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SUPPLIER_SEQUENCE")
-	@SequenceGenerator(name = "SUPPLIER_SEQUENCE", sequenceName = "SUPPLIER_SEQUENCE", allocationSize = 1)
-	@Column(name = "SUPPLIER_SEQ_NO")
-	private Long supplierSeqNo;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUSTOMER_SEQUENCE")
+	@SequenceGenerator(name = "CUSTOMER_SEQUENCE", sequenceName = "CUSTOMER_SEQUENCE", allocationSize = 1)
+	@Column(name = "CUSTOMER_SEQ_NO")
+	private Long customerSeqNo;
 
 	@Column(name = "PARTY_SEQ_NO")
 	private Long partySeqNo;
@@ -23,15 +23,15 @@ public class SupplierMaster implements Serializable {
 	@Column(name = "STATUS")
 	private String status;
 
-	public SupplierMaster() {
+	public CustomerMaster() {
 	}
 
-	public Long getSupplierSeqNo() {
-		return supplierSeqNo;
+	public Long getCustomerSeqNo() {
+		return customerSeqNo;
 	}
 
-	public void setSupplierSeqNo(Long supplierSeqNo) {
-		this.supplierSeqNo = supplierSeqNo;
+	public void setCustomerSeqNo(Long customerSeqNo) {
+		this.customerSeqNo = customerSeqNo;
 	}
 
 	public Long getPartySeqNo() {
@@ -62,10 +62,10 @@ public class SupplierMaster implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((customerSeqNo == null) ? 0 : customerSeqNo.hashCode());
 		result = prime * result + ((partySeqNo == null) ? 0 : partySeqNo.hashCode());
 		result = prime * result + ((remark == null) ? 0 : remark.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
-		result = prime * result + ((supplierSeqNo == null) ? 0 : supplierSeqNo.hashCode());
 		return result;
 	}
 
@@ -77,7 +77,12 @@ public class SupplierMaster implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		SupplierMaster other = (SupplierMaster) obj;
+		CustomerMaster other = (CustomerMaster) obj;
+		if (customerSeqNo == null) {
+			if (other.customerSeqNo != null)
+				return false;
+		} else if (!customerSeqNo.equals(other.customerSeqNo))
+			return false;
 		if (partySeqNo == null) {
 			if (other.partySeqNo != null)
 				return false;
@@ -93,17 +98,12 @@ public class SupplierMaster implements Serializable {
 				return false;
 		} else if (!status.equals(other.status))
 			return false;
-		if (supplierSeqNo == null) {
-			if (other.supplierSeqNo != null)
-				return false;
-		} else if (!supplierSeqNo.equals(other.supplierSeqNo))
-			return false;
 		return true;
 	}
 
-	public SupplierMaster(Long supplierSeqNo, Long partySeqNo, String remark, String status) {
+	public CustomerMaster(Long customerSeqNo, Long partySeqNo, String remark, String status) {
 		super();
-		this.supplierSeqNo = supplierSeqNo;
+		this.customerSeqNo = customerSeqNo;
 		this.partySeqNo = partySeqNo;
 		this.remark = remark;
 		this.status = status;

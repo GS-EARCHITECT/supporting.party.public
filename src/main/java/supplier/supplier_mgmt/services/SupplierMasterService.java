@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
 import supplier.supplier_mgmt.model.dto.SupplierMasterDTO;
 import supplier.supplier_mgmt.model.master.SupplierMaster;
 import supplier.supplier_mgmt.model.repo.SupplierMasterRepo;
@@ -72,8 +71,7 @@ public class SupplierMasterService implements I_SupplierMasterService {
 
 	private SupplierMasterDTO getSupplierMasterDTO(SupplierMaster lMaster) {
 		SupplierMasterDTO lDTO = new SupplierMasterDTO();
-		lDTO.setCompanySeqNo(lMaster.getCompanySeqNo());
-		lDTO.setPersonSeqNo(lMaster.getPersonSeqNo());
+		lDTO.setPartySeqNo(lMaster.getPartySeqNo());
 		lDTO.setRemark(lMaster.getRemark());
 		lDTO.setSupplierSeqNo(lMaster.getSupplierSeqNo());
 		lDTO.setStatus(lMaster.getStatus());
@@ -82,8 +80,7 @@ public class SupplierMasterService implements I_SupplierMasterService {
 
 	private SupplierMaster setSupplierMaster(SupplierMasterDTO lDTO) {
 		SupplierMaster lMaster = new SupplierMaster();
-		lMaster.setCompanySeqNo(lDTO.getCompanySeqNo());
-		lMaster.setPersonSeqNo(lDTO.getPersonSeqNo());
+		lMaster.setPartySeqNo(lDTO.getPartySeqNo());		
 		lMaster.setRemark(lDTO.getRemark());
 		lMaster.setStatus(lDTO.getStatus());
 		return lMaster;
