@@ -8,7 +8,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name = "COMPANY_UNIT_CLASS")
+@Table(name = "COMPANY_UNIT_CLASS_MASTER")
 public class CompanyUnitClass implements Serializable {
 	/**
 	 * 
